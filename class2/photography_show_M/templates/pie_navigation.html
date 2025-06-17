@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="pie-page">
+    <!-- 通过form表单实现跳转 -->
+    <form method="get" class="pie-container">
+        <!-- 每个按钮是一个submit按钮 -->
+        <button type="submit" formaction="/discovery" class="pie-segment1" id="segment1">
+            <span>DISCOVERY</span>
+        </button>
+        <button type="submit" formaction="/about" class="pie-segment2" id="segment2">
+            <span>ABOUT</span>
+        </button>
+        <button type="submit" formaction="/author" class="pie-segment3" id="segment3">
+            <span>AUTHOR</span>
+        </button>
+    </form>
+</body>
+</html>

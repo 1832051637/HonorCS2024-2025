@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .authors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .author-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .author-card:hover {
+            transform: translateY(-10px);
+        }
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .author-name {
+            font-size: 1.3em;
+            margin: 10px 0;
+            color: #333;
+        }
+        .author-bio {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .back-btn {
+            display: block;
+            width: 120px;
+            margin: 30px auto;
+            padding: 10px;
+            text-align: center;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="authors-container">
+        <!-- 作者1 - 马赛克墙效果 -->
+        <a href="/author/1" class="author-card">
+            <img src="{{ url_for('static', filename='avatars/author1.jpg') }}"
+                 class="author-avatar"
+                 alt="Alex Chen">
+            <h3 class="author-name">Henri Carier-breson</h3>
+            <p class="author-bio">街头摄影专家，擅长捕捉城市瞬间</p>
+        </a>
+
+        <!-- 作者2 - 视差效果 -->
+        <a href="/author/2" class="author-card">
+            <img src="{{ url_for('static', filename='avatars/author2.jpg') }}"
+                 class="author-avatar"
+                 alt="Emma Wang">
+            <h3 class="author-name">Annie Leibovitiz</h3>
+            <p class="author-bio">人像摄影大师</p>
+        </a>
+
+        <!-- 作者3 - 粒子效果 -->
+        <a href="/author/3" class="author-card">
+            <img src="{{ url_for('static', filename='avatars/author3.jpg') }}"
+                 class="author-avatar"
+                 alt="Sam Lee">
+            <h3 class="author-name">Robert capa</h3>
+            <p class="author-bio">自然风光摄影师</p>
+        </a>
+
+        <!-- 作者4 - Ken Burns效果 -->
+        <a href="/author/4" class="author-card">
+            <img src="{{ url_for('static', filename='avatars/author4.jpg') }}"
+                 class="author-avatar"
+                 alt="Lisa qq">
+            <h3 class="author-name">Robert Capa</h3>
+            <p class="author-bio">纪实摄影师</p>
+        </a>
+
+        <!-- 作者5 - 水彩效果 -->
+        <a href="/author/5" class="author-card">
+            <img src="{{ url_for('static', filename='avatars/author5.jpg') }}"
+                 class="author-avatar"
+                 alt="Tom Brown">
+            <h3 class="author-name">Cindy sherman</h3>
+            <p class="author-bio">概念摄影艺术家</p>
+        </a>
+    </div>
+
+    <a href="/navigation" class="back-btn">返回</a>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .content {
+            text-align: center;
+            padding: 50px;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .discover-gallery {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            max-width: 1100px;
+            margin: 40px auto;
+        }
+        .discover-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+<body>
+    <div class="content">
+        <h1>DISCOVERY</h1>
+        <p>这里将展示摄影作品集</p>
+    </div>
+    <div class="discover-gallery">
+        {% for i in range(1, 26) %}
+            <img src="{{ url_for('static', filename='works/discover/photo_' ~ i ~ '.png') }}" alt="discovery images{{ i }}" class="discover-img">
+        {% endfor %}
+    </div>
+    <a href="/navigation" class="back-btn bottom-btn">返回导航</a>
+</body>
+<!-- ...existing code... -->
+<style>
+    /* ...existing code... */
+    .back-btn.bottom-btn {
+        position: fixed;
+        left: 50%;
+        bottom: 30px;
+        transform: translateX(-50%);
+        z-index: 100;
+        background: rgba(0,0,0,0.7);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+        transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        font-size: 18px;
+    }
+    .back-btn.bottom-btn:hover {
+        transform: translateX(-50%) translateY(-8px) scale(1.07);
+        background: rgba(0,0,0,0.85);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    }
+    .back-btn.bottom-btn:active {
+        transform: translateX(-50%) scale(0.97);
+        background: rgba(0,0,0,0.6);
+    }
+</style>
+    /* ...existing code... */
+<style>  
+    .discover-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: 
+        transform 0.3s cubic-bezier(.25,.8,.25,1), 
+        box-shadow 0.3s cubic-bezier(.25,.8,.25,1),
+        filter 0.3s;
+}
+.discover-img:hover {
+    transform: translateY(-14px) scale(1.08) rotate(-1deg);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.28), 0 1.5px 8px rgba(0,0,0,0.12);
+    filter: brightness(1.08) saturate(1.1);
+    z-index: 3;
+}
+.discover-img:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+</style>
+<!-- ...existing code... -->
+</div>
+<!-- 全屏图片遮罩层和大图 -->
+ <!-- ...existing code... -->
+<div id="img-modal" class="img-modal" style="display:none;">
+    <span class="img-modal-close" onclick="closeModal()">&times;</span>
+    <span class="img-modal-arrow img-modal-prev" onclick="prevImg(event)">&#8592;</span>
+    <img class="img-modal-content" id="img-modal-big">
+    <span class="img-modal-arrow img-modal-next" onclick="nextImg(event)">&#8594;</span>
+</div>
+<script>
+    // 获取所有图片节点
+    const imgs = Array.from(document.querySelectorAll('.discover-img'));
+    let currentIndex = 0;
+
+    // 点击图片放大
+    imgs.forEach(function(img, idx) {
+        img.onclick = function() {
+            document.getElementById('img-modal').style.display = 'flex';
+            document.getElementById('img-modal-big').src = this.src;
+            currentIndex = idx;
+        }
+    });
+    </style>
+
+    
+
+
+    // 上一张
+    function prevImg(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + imgs.length) % imgs.length;
+        document.getElementById('img-modal-big').src = imgs[currentIndex].src;
+    }
+    // 下一张
+    function nextImg(e) {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % imgs.length;
+        document.getElementById('img-modal-big').src = imgs[currentIndex].src;
+    }
+    // 关闭大图
+    function closeModal() {
+        document.getElementById('img-modal').style.display = 'none';
+    }
+    // 点击遮罩层关闭
+    document.getElementById('img-modal').onclick = function(e) {
+        if(e.target === this) closeModal();
+    }
+</script>
+<style>
+    .img-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.85);
+        justify-content: center;
+        align-items: center;
+    }
+    .img-modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+        background: #fff;
+    }
+    .img-modal-close {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        color: #fff;
+        font-size: 48px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        user-select: none;
+    }
+    .img-modal-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        user-select: none;
+        padding: 0 20px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+    .img-modal-arrow:hover {
+        opacity: 1;
+    }
+    .img-modal-prev {
+        left: 30px;
+    }
+    .img-modal-next {
+        right: 30px;
+    }
+</style>
+<!-- ...existing code... -->
+<div id="img-modal" class="img-modal" style="display:none;">
+    <span class="img-modal-close" onclick="closeModal()">&times;</span>
+    <img class="img-modal-content" id="img-modal-big">
+</div>
+<script>
+    // 点击图片放大
+    document.querySelectorAll('.discover-img').forEach(function(img) {
+        img.onclick = function() {
+            document.getElementById('img-modal').style.display = 'flex';
+            document.getElementById('img-modal-big').src = this.src;
+        }
+    });
+    // 关闭大图
+    function closeModal() {
+        document.getElementById('img-modal').style.display = 'none';
+    }
+    // 点击遮罩层关闭
+    document.getElementById('img-modal').onclick = function(e) {
+        if(e.target === this) closeModal();
+    }
+</script>
+<style>
+    .img-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0; top: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0.85);
+        justify-content: center;
+        align-items: center;
+    }
+    .img-modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 12px;
+        box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+        background: #fff;
+    }
+    .img-modal-close {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        color: #fff;
+        font-size: 48px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        user-select: none;
+    }
+</style>
+<!-- ...existing code... -->
+ <style>
+    .img-modal-close,
+    .img-modal-arrow {
+        background: rgba(0,0,0,0.5);
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        transition: background 0.2s, box-shadow 0.2s, opacity 0.2s;
+        opacity: 0.8;
+    }
+    .img-modal-close:hover,
+    .img-modal-arrow:hover {
+        background: rgba(0,0,0,0.8);
+        opacity: 1;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    }
+    .img-modal-close {
+        position: absolute;
+        top: 30px;
+        right: 50px;
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10000;
+        user-select: none;
+    }
+    .img-modal-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #fff;
+        font-size: 36px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 10001;
+        user-select: none;
+        padding: 0;
+    }
+    .img-modal-prev {
+        left: 30px;
+    }
+    .img-modal-next {
+        right: 30px;
+    }
+</style>
