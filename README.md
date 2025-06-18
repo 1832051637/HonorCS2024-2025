@@ -17,6 +17,7 @@ This repository contains the Honor CS final projects for the Spring 2025 semeste
 - [Team K: 2048](./class2/2048_K/)
 - [Team S: Dino Hop](./class2/dino_hop_S/)
 - [Team M: Photo Show Website](./class2/photography_show_M/)
+- [Team A: Snake](./class2/snake_A/)
 - [Team O: Snake](./class2/snake_O/)
 - [Team H: Block Puzzle](./class2/tuixiangzi_H/)
 
