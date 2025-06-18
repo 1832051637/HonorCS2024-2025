@@ -19,3 +19,10 @@ This repository contains the Honor CS final projects for the Spring 2025 semeste
 - [Team M: Photo Show Website](./class2/photography_show_M/)
 - [Team O: Snake](./class2/snake_O/)
 - [Team H: Block Puzzle](./class2/tuixiangzi_H/)
+
+---
+© 2025 Honors Computer Science Course, AP Division, Shenghua Zizhu Academy. All rights reserved. 
+
+This project was created by students as part of the coursework for the Honor Computer Science class, Spring 2025.  
+
+Reproduction or redistribution of this work without permission is prohibited.
