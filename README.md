@@ -23,6 +23,6 @@ This repository contains the Honor CS final projects for the Spring 2025 semeste
 ---
 © 2025 Honors Computer Science Course, AP Division, Shenghua Zizhu Academy. All rights reserved. 
 
-This project was created by students as part of the coursework for the Honor Computer Science class, Spring 2025.  
+These projects was created by students as part of the coursework for the Honor Computer Science class, Spring 2025. 
 
-Reproduction or redistribution of this work without permission is prohibited.
+Unless otherwise stated, all projects in this repository are for educational purposes only. Reproduction or redistribution of this work without permission is prohibited.
