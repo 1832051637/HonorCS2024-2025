@@ -1,4 +1,4 @@
-#  Spring 2025 Honor Computer Science Projects
+#  Spring 2025 Honor Computer Science Final Projects
 
 This repository contains the Honor CS final projects for the Spring 2025 semester.
 
@@ -21,7 +21,7 @@ This repository contains the Honor CS final projects for the Spring 2025 semeste
 - [Team H: Block Puzzle](./class2/tuixiangzi_H/)
 
 ---
-© 2025 Honors Computer Science Course, AP Division, Shenghua Zizhu Academy. All rights reserved. 
+© 2025 Honor Computer Science Course, AP Division, Shenghua Zizhu Academy. All rights reserved. 
 
 These projects was created by students as part of the coursework for the Honor Computer Science class, Spring 2025. 
 
