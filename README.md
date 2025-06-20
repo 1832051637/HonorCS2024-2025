@@ -8,7 +8,7 @@ This repository contains the Honor CS final projects for the Spring 2025 semeste
 - [Team B: Housing Price Predictor](./class1/HousingPricePrediction_B/)
 - [Team X: Spam Detection Model](./class1/Spam_Detection_X/)
 - [Team A: Subconsciousness](./class1/Subconsciousness_A/)
-- [Team C: 五子棋](./class1/五子棋_S/)
+- [Team C: 五子棋](./class1/五子棋_C/)
 - [Team O: 汽车避让](./class1/汽车避让_O/)
 - [Team S: 飞机大厨](./class1/飞机大厨_S/)
 
